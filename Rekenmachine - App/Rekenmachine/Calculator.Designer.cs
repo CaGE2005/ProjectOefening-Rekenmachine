@@ -448,6 +448,7 @@
             this.button29.TabIndex = 30;
             this.button29.Text = "MS";
             this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.Button29_Click);
             this.button29.MouseLeave += new System.EventHandler(this.Button29_MouseLeave);
             this.button29.MouseHover += new System.EventHandler(this.Button29_MouseHover);
             // 
@@ -456,7 +457,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(419, 818);
+            this.CausesValidation = false;
+            this.ClientSize = new System.Drawing.Size(415, 814);
             this.Controls.Add(this.button29);
             this.Controls.Add(this.Expression);
             this.Controls.Add(this.button28);
@@ -488,6 +490,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Display);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximumSize = new System.Drawing.Size(441, 874);
             this.MinimumSize = new System.Drawing.Size(441, 874);
             this.Name = "Calculator";

@@ -12,49 +12,20 @@ namespace Rekenmachine
 {
     public partial class Calculator : Form
     {
+        MathLogic doMath = new MathLogic();
+       
         double result = 0;
         double mem = 0;
-        bool calc = false;       
-        string symbol = "+";
+        bool newEntry = true;
+        char operand = '+';
 
         public Calculator()
         {
             InitializeComponent();
-
-        }
-
-        private void Calculate()
-        {
-            if (symbol == "+")
-            {
-                result += Convert.ToDouble(Display.Text);
-            }
-
-            if (symbol == "-")
-            {
-                result -= Convert.ToDouble(Display.Text);
-            }
-
-            if (symbol == "*")
-            {
-                result *= Convert.ToDouble(Display.Text);
-            }
-
-            if (symbol == "/")
-            {
-                result /= Convert.ToDouble(Display.Text);
-            }
-
-            if (symbol == "x")
-            {
-                double t = Convert.ToDouble(Display.Text);
-                result = 1 / t;
-            }
-        }
-
+        }          
         
         private void Button1_Click(object sender, EventArgs e)
-        {
+        {            
             mem = 0;
         }
 
@@ -81,11 +52,14 @@ namespace Rekenmachine
             mem = 0;
             Expression.Text = "";
             Display.Text = "0";
+            operand = '+';
+            newEntry = true;
         }
 
         private void Button6_Click(object sender, EventArgs e)
         {
             Display.Text = "0";
+            newEntry = true;
         }
 
         private void Button7_Click(object sender, EventArgs e)
@@ -105,162 +79,170 @@ namespace Rekenmachine
 
         private void Button10_Click(object sender, EventArgs e)
         {
-            if (calc == false)
+            if (newEntry == false)
             {
-                Calculate();
+                
             }
-            Expression.Text += Display.Text + "1/(" + Display.Text + ")";
-            symbol = "x";
-            Calculate();
+            Expression.Text += Display.Text + " 1/(" + Display.Text + ") ";
+            operand = 'x';
+          
             Display.Text = Convert.ToString(result);
-            calc = true;
         }
 
         private void Button11_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "7";
             }
             else
             {
                 Display.Text += "7";
+               
             }
-            calc = false;
+            newEntry = false;
 
         }
         private void Button12_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "8";
             }
             else
             {
                 Display.Text += "8";
+                
             }
-            calc = false;
+            newEntry = false;
         }
         private void Button13_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "9";
             }
             else
             {
                 Display.Text += "9";
+                
             }
-            calc = false;
+            newEntry = false;
         }
         private void Button14_Click(object sender, EventArgs e)
         {
-            if (calc == false)
+            if (newEntry == false)
             {
-                Calculate();
+                Expression.Text += Display.Text + " / ";
+                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
+                Display.Text = Convert.ToString(result);
+                operand = '/';
+                newEntry = true;
             }
-            Expression.Text += Display.Text + "/";
-            Display.Text = Convert.ToString(result);
-            symbol = "/";
-            calc = true;
         }
         private void Button15_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "4";
             }
             else
             {
                 Display.Text += "4";
+                
             }
-            calc = false;
+            newEntry = false;
         }
         private void Button16_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "5";
             }
             else
             {
                 Display.Text += "5";
+                
             }
-            calc = false;
+            newEntry = false;
         }
         private void Button17_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "6";
             }
             else
             {
                 Display.Text += "6";
+                
             }
-            calc = false;
+            newEntry = false;
         }
 
         private void Button18_Click(object sender, EventArgs e)
         {
-            if (calc == false)
+            if (newEntry == false)
             {
-                Calculate();
+                Expression.Text += Display.Text + " x ";
+                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
+                Display.Text = Convert.ToString(result);
+                operand = '*';
+                newEntry = true;
             }
-            Expression.Text += Display.Text + "x";
-            Display.Text = Convert.ToString(result);
-            symbol = "*";
-            calc = true;
         }
 
         private void Button19_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "1";
             }
             else
             {
                 Display.Text += "1";
+                
             }
-            calc = false;
+            newEntry = false;
         }
 
         private void Button20_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "2";
             }
             else
             {
                 Display.Text += "2";
+                
             }
-            calc = false;
+            newEntry = false;
         }
         private void Button21_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "3";
             }
             else
             {
                 Display.Text += "3";
+                
             }
-            calc = false;
+            newEntry = false;
         }
 
         private void Button22_Click(object sender, EventArgs e)
         {
-            if (calc == false)
+            if (newEntry == false)
             {
-                Calculate();
+                Expression.Text += Display.Text + " - ";
+                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
+                Display.Text = Convert.ToString(result);
+                operand = '-';
+                newEntry = true;
             }
-            Expression.Text += Display.Text + "-";
-            Display.Text = Convert.ToString(result);
-            symbol = "-";
-            calc = true;
         }
 
         private void Button23_Click(object sender, EventArgs e)
@@ -270,44 +252,46 @@ namespace Rekenmachine
             {
                 Display.Text = "-" + Display.Text;
             }
+            operatorSwitch = false;
         }
 
         private void Button24_Click(object sender, EventArgs e)
         {
-            if (Display.Text == "0" || calc == true)
+            if (newEntry==true)
             {
                 Display.Text = "0";
             }
             else
             {
-                Display.Text += "0";                
+                Display.Text += "0";
+                newEntry = false;             
             }
-            calc = false;
+            
 
         }
 
         private void Button25_Click(object sender, EventArgs e)
-        {            
-            if (calc == false)
+        {
+            if (newEntry == false)
             {
-                Calculate();
+                Expression.Text = "";
+                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
+                Display.Text = Convert.ToString(result);
+                operand = '=';
             }
-            Expression.Text += Display.Text + "=";
-            Display.Text = Convert.ToString(result);
-            symbol = "=";
-            calc = true;
+            
         }
 
         private void Button26_Click(object sender, EventArgs e)
         {
-            if (calc == false)
+            if (newEntry == false)
             {
-                Calculate();
-            }
-            Expression.Text += Display.Text + "+";
-            Display.Text = Convert.ToString(result);
-            symbol = "+";
-            calc = true;
+                Expression.Text += Display.Text + " + ";
+                result=doMath.Calculate(result,Convert.ToDouble(Display.Text),operand);
+                Display.Text = Convert.ToString(result);
+                operand = '+';                
+                newEntry = true;               
+            }            
         }
 
 
@@ -318,7 +302,7 @@ namespace Rekenmachine
 
         private void Button28_Click(object sender, EventArgs e)
         {
-            if (calc == true)
+            if (newEntry == true)
             {
                 Display.Text = "0,";
             }
@@ -326,7 +310,13 @@ namespace Rekenmachine
             {
                 Display.Text += ",";               
             }
-            calc = false;
+            newEntry = false;
+        }
+
+        private void Button29_Click(object sender, EventArgs e)
+        {
+            mem = Convert.ToInt32(Display.Text);
+            Display.Text = "0";
         }
 
         // MouseOver button color change

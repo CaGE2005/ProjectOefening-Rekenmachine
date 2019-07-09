@@ -15,5 +15,6 @@ namespace Rekenmachine
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Calculator());
         }
+       
     }
 }
