@@ -251,8 +251,7 @@ namespace Rekenmachine
             if (Display.Text != "0" && first != '-')
             {
                 Display.Text = "-" + Display.Text;
-            }
-            operatorSwitch = false;
+            }            
         }
 
         private void Button24_Click(object sender, EventArgs e)
