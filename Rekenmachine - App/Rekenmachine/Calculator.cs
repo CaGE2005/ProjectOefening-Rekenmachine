@@ -81,12 +81,10 @@ namespace Rekenmachine
         {
             if (newEntry == false)
             {
-                
-            }
-            Expression.Text += Display.Text + " 1/(" + Display.Text + ") ";
-            operand = 'x';
-          
-            Display.Text = Convert.ToString(result);
+                Expression.Text += Display.Text + " 1/(" + Display.Text + ") ";
+                double inversion = doMath.Calculate(Convert.ToDouble(Display.Text), 0, 'i');
+                Display.Text = Convert.ToString(inversion);                             
+            }            
         }
 
         private void Button11_Click(object sender, EventArgs e)

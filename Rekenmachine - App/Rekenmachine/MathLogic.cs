@@ -32,6 +32,10 @@ namespace Rekenmachine
                 result = Divide(a, b);
             }
 
+            if (operand == 'i')
+            {
+                result = Inverse(a);
+            }
             if (operand == '=')
             {
                 result = a;
