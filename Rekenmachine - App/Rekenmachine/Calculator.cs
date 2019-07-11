@@ -364,7 +364,14 @@ namespace Rekenmachine
 
         private void Button27_Click(object sender, EventArgs e)
         {
-          
+            if (Display.Text.Length > 1)
+            {
+                Display.Text = Display.Text.Substring(0, Display.Text.Length - 1);
+            }
+            else
+            {
+                Display.Text = "0";
+            }
         }
 
         private void Button28_Click(object sender, EventArgs e)

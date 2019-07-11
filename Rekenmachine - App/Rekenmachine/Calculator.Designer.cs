@@ -65,7 +65,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(0, 107);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 50);
+            this.button1.Size = new System.Drawing.Size(78, 48);
             this.button1.TabIndex = 0;
             this.button1.Text = "MC";
             this.button1.UseVisualStyleBackColor = true;
@@ -85,9 +85,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(75, 107);
+            this.button2.Location = new System.Drawing.Point(78, 107);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(78, 50);
+            this.button2.Size = new System.Drawing.Size(75, 48);
             this.button2.TabIndex = 2;
             this.button2.Text = "MR";
             this.button2.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(151, 107);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(78, 50);
+            this.button3.Size = new System.Drawing.Size(73, 48);
             this.button3.TabIndex = 3;
             this.button3.Text = "M+";
             this.button3.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             // 
             this.button4.Location = new System.Drawing.Point(222, 107);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(78, 50);
+            this.button4.Size = new System.Drawing.Size(78, 48);
             this.button4.TabIndex = 4;
             this.button4.Text = "M-";
             this.button4.UseVisualStyleBackColor = true;
@@ -444,7 +444,7 @@
             // 
             this.button29.Location = new System.Drawing.Point(296, 107);
             this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(78, 50);
+            this.button29.Size = new System.Drawing.Size(78, 48);
             this.button29.TabIndex = 30;
             this.button29.Text = "MS";
             this.button29.UseVisualStyleBackColor = true;
