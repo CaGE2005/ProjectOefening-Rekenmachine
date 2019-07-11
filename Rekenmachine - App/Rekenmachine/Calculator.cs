@@ -18,7 +18,7 @@ namespace Rekenmachine
         double mem = 0;
         bool newEntry = true;
         bool directOp = false;
-        char operand = '+';
+        char operat = '+';
 
         public Calculator()
         {
@@ -53,7 +53,7 @@ namespace Rekenmachine
             mem = 0;
             Expression.Text = "";
             Display.Text = "0";
-            operand = '+';
+            operat = '+';
             newEntry = true;
         }
 
@@ -70,7 +70,7 @@ namespace Rekenmachine
                 Expression.Text += Display.Text + "% ";
                 double percentage = doMath.Calculate(Convert.ToDouble(Display.Text), result, '%');
                 Display.Text = Convert.ToString(percentage);
-                if (operand == '=')
+                if (operat == '=')
                 {
                     result = Convert.ToDouble(Display.Text);
                 }
@@ -85,7 +85,7 @@ namespace Rekenmachine
                 Expression.Text += "√" + Display.Text + " "; 
                 double squareRoot = doMath.Calculate(Convert.ToDouble(Display.Text), 0, '√');
                 Display.Text = Convert.ToString(squareRoot);
-                if (operand == '=')
+                if (operat == '=')
                 {
                     result = Convert.ToDouble(Display.Text);
                 }
@@ -100,7 +100,7 @@ namespace Rekenmachine
                 Expression.Text += Display.Text + "² ";
                 double power = doMath.Calculate(Convert.ToDouble(Display.Text), 0, '²');
                 Display.Text = Convert.ToString(power);
-                if (operand == '=')
+                if (operat == '=')
                 {
                     result = Convert.ToDouble(Display.Text);
                 }
@@ -115,7 +115,7 @@ namespace Rekenmachine
                 Expression.Text += Display.Text + " 1/(" + Display.Text + ") ";
                 double inversion = doMath.Calculate(Convert.ToDouble(Display.Text), 0, 'i');
                 Display.Text = Convert.ToString(inversion);
-                if (operand == '=')
+                if (operat == '=')
                 {
                     result = Convert.ToDouble(Display.Text);
                 }
@@ -176,9 +176,9 @@ namespace Rekenmachine
                 {
                     Expression.Text += Display.Text + " / ";
                 }
-                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
+                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operat);
                 Display.Text = Convert.ToString(result);
-                operand = '/';
+                operat = '/';
                 newEntry = true;
             }
         }
@@ -235,9 +235,9 @@ namespace Rekenmachine
                 {
                     Expression.Text += Display.Text + " x ";
                 }
-                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
+                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operat);
                 Display.Text = Convert.ToString(result);
-                operand = '*';
+                operat = '*';
                 newEntry = true;
             }
         }
@@ -296,9 +296,9 @@ namespace Rekenmachine
                 {
                     Expression.Text += Display.Text + " - ";
                 }
-                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
+                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operat);
                 Display.Text = Convert.ToString(result);
-                operand = '-';
+                operat = '-';
                 newEntry = true;
             }
         }
@@ -332,9 +332,9 @@ namespace Rekenmachine
             if (newEntry == false)
             {
                 Expression.Text = "";
-                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
+                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operat);
                 Display.Text = Convert.ToString(result);
-                operand = '=';
+                operat = '=';
                 newEntry = true;
             }
             
@@ -353,9 +353,9 @@ namespace Rekenmachine
                 {
                     Expression.Text += Display.Text + " + ";
                 }                
-                result=doMath.Calculate(result,Convert.ToDouble(Display.Text),operand);
+                result=doMath.Calculate(result,Convert.ToDouble(Display.Text),operat);
                 Display.Text = Convert.ToString(result);
-                operand = '+';                
+                operat = '+';                
                 newEntry = true;
                 directOp = false;
             }            
