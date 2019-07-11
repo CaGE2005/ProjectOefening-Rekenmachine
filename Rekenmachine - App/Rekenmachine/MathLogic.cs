@@ -37,15 +37,21 @@ namespace Rekenmachine
                 result = Inverse(a);
             }
 
-            if (operand == 's')
+            if (operand == '²')
             {
-                result = Square(a);
+                result = Power(a);
             }
 
-            if (operand == 'p')
+            if (operand == '%')
             {
-                result = Percent(a);
+                result = Percent(a, b);
             }
+
+            if (operand == '√')
+            {
+                result = Root(a);
+            }
+
             if (operand == '=')
             {
                 result = a;
@@ -80,7 +86,7 @@ namespace Rekenmachine
             return 1 / a;
         }
 
-        public double Square(double a)
+        public double Power(double a)
         {
             return Math.Pow(a,2);
         }
@@ -90,9 +96,9 @@ namespace Rekenmachine
             return Math.Sqrt(a);
         }
 
-        public double Percent(double a)
+        public double Percent(double a, double b)
         {
-
+            return (b / 100) * a;
         }
     }
 }

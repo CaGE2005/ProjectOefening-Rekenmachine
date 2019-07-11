@@ -17,7 +17,7 @@ namespace Rekenmachine
         double result = 0;
         double mem = 0;
         bool newEntry = true;
-        bool specialOp = false;
+        bool directOp = false;
         char operand = '+';
 
         public Calculator()
@@ -65,51 +65,61 @@ namespace Rekenmachine
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            if (specialOp == true)
+            if (Display.Text != "0")
             {
-                Expression.Text += "%";
-                specialOp = false;
-            }
-            else
-            {
-                Expression.Text += Display.Text + "%";
-            }
+                Expression.Text += Display.Text + "% ";
+                double percentage = doMath.Calculate(Convert.ToDouble(Display.Text), result, '%');
+                Display.Text = Convert.ToString(percentage);
+                if (operand == '=')
+                {
+                    result = Convert.ToDouble(Display.Text);
+                }
+                directOp = true;
+            }            
         }
 
         private void Button8_Click(object sender, EventArgs e)
         {
-            if (specialOp == true)
+            if (Display.Text != "0")
             {
-                Expression.Text += "√";
-                specialOp = false;
-            }
-            else
-            {
-                Expression.Text += Display.Text + "√";
-            }
+                Expression.Text += "√" + Display.Text + " "; 
+                double squareRoot = doMath.Calculate(Convert.ToDouble(Display.Text), 0, '√');
+                Display.Text = Convert.ToString(squareRoot);
+                if (operand == '=')
+                {
+                    result = Convert.ToDouble(Display.Text);
+                }
+                directOp = true;
+            }           
         }
 
         private void Button9_Click(object sender, EventArgs e)
         {
-            if (specialOp == true)
+            if (Display.Text != "0")
             {
-                Expression.Text += "²";
-                specialOp = false;
-            }
-            else
-            {
-                Expression.Text += Display.Text + "²";
-            }
+                Expression.Text += Display.Text + "² ";
+                double power = doMath.Calculate(Convert.ToDouble(Display.Text), 0, '²');
+                Display.Text = Convert.ToString(power);
+                if (operand == '=')
+                {
+                    result = Convert.ToDouble(Display.Text);
+                }
+                directOp = true;
+            }           
         }
 
         private void Button10_Click(object sender, EventArgs e)
         {
-            if (newEntry == false)
+            if (Display.Text != "0")
             {
                 Expression.Text += Display.Text + " 1/(" + Display.Text + ") ";
                 double inversion = doMath.Calculate(Convert.ToDouble(Display.Text), 0, 'i');
                 Display.Text = Convert.ToString(inversion);
-                specialOp = true;
+                if (operand == '=')
+                {
+                    result = Convert.ToDouble(Display.Text);
+                }
+                directOp = true;
             }            
         }
 
@@ -155,16 +165,16 @@ namespace Rekenmachine
         }
         private void Button14_Click(object sender, EventArgs e)
         {
-            if (newEntry == false)
+            if (Display.Text != "0")
             {
-                if (specialOp == true)
+                if (directOp == true)
                 {
-                    Expression.Text += "/";
-                    specialOp = false;
+                    Expression.Text += " / ";
+                    directOp = false;
                 }
                 else
                 {
-                    Expression.Text += Display.Text + "/";
+                    Expression.Text += Display.Text + " / ";
                 }
                 result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
                 Display.Text = Convert.ToString(result);
@@ -214,16 +224,16 @@ namespace Rekenmachine
 
         private void Button18_Click(object sender, EventArgs e)
         {
-            if (newEntry == false)
+            if (Display.Text != "0")
             {
-                if (specialOp == true)
+                if (directOp == true)
                 {
-                    Expression.Text += "x";
-                    specialOp = false;
+                    Expression.Text += " x ";
+                    directOp = false;
                 }
                 else
                 {
-                    Expression.Text += Display.Text + "x";
+                    Expression.Text += Display.Text + " x ";
                 }
                 result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
                 Display.Text = Convert.ToString(result);
@@ -275,16 +285,16 @@ namespace Rekenmachine
 
         private void Button22_Click(object sender, EventArgs e)
         {
-            if (newEntry == false)
+            if (Display.Text != "0")
             {
-                if (specialOp == true)
+                if (directOp == true)
                 {
-                    Expression.Text += "-";
-                    specialOp = false;
+                    Expression.Text += " - ";
+                    directOp = false;
                 }
                 else
                 {
-                    Expression.Text += Display.Text + "-";
+                    Expression.Text += Display.Text + " - ";
                 }
                 result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
                 Display.Text = Convert.ToString(result);
@@ -325,28 +335,29 @@ namespace Rekenmachine
                 result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operand);
                 Display.Text = Convert.ToString(result);
                 operand = '=';
+                newEntry = true;
             }
             
         }
 
         private void Button26_Click(object sender, EventArgs e)
         {
-            if (newEntry == false)
+            if (Display.Text != "0")
             {
-                if (specialOp == true)
+                if (directOp == true)
                 {
-                    Expression.Text += "+";
-                    specialOp = false;
+                    Expression.Text += " + ";
+                    directOp = false;
                 }
                 else
                 {
-                    Expression.Text += Display.Text + "+";
+                    Expression.Text += Display.Text + " + ";
                 }                
                 result=doMath.Calculate(result,Convert.ToDouble(Display.Text),operand);
                 Display.Text = Convert.ToString(result);
                 operand = '+';                
                 newEntry = true;
-                specialOp = false;
+                directOp = false;
             }            
         }
 
