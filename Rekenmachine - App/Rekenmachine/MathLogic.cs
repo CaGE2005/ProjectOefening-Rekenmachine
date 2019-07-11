@@ -32,6 +32,20 @@ namespace Rekenmachine
                 result = Divide(a, b);
             }
 
+            if (operand == 'i')
+            {
+                result = Inverse(a);
+            }
+
+            if (operand == 's')
+            {
+                result = Square(a);
+            }
+
+            if (operand == 'p')
+            {
+                result = Percent(a);
+            }
             if (operand == '=')
             {
                 result = a;
@@ -74,6 +88,11 @@ namespace Rekenmachine
         public double Root(double a)
         {
             return Math.Sqrt(a);
+        }
+
+        public double Percent(double a)
+        {
+
         }
     }
 }
