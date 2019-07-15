@@ -6,7 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Collections;
 
 namespace Rekenmachine
 {
@@ -19,6 +22,8 @@ namespace Rekenmachine
         bool newEntry = true;
         bool directOp = false;
         char operat = '+';
+
+        string decimalSymbol = NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator;
 
         public Calculator()
         {
@@ -378,11 +383,11 @@ namespace Rekenmachine
         {
             if (newEntry == true)
             {
-                Display.Text = "0,";
+                Display.Text = "0" + decimalSymbol;
             }
             else
             {
-                Display.Text += ",";               
+                Display.Text += decimalSymbol;               
             }
             newEntry = false;
         }
