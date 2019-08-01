@@ -16,7 +16,7 @@ namespace Rekenmachine
     public partial class Calculator : Form
     {
         MathLogic doMath = new MathLogic();
-       
+
         double result = 0;
         double mem = 0;
         bool newEntry = true;
@@ -28,10 +28,10 @@ namespace Rekenmachine
         public Calculator()
         {
             InitializeComponent();
-        }          
-        
+        }
+
         private void Button1_Click(object sender, EventArgs e)
-        {            
+        {
             mem = 0;
         }
 
@@ -80,14 +80,14 @@ namespace Rekenmachine
                     result = Convert.ToDouble(Display.Text);
                 }
                 directOp = true;
-            }            
+            }
         }
 
         private void Button8_Click(object sender, EventArgs e)
         {
             if (Display.Text != "0")
             {
-                Expression.Text += "√" + Display.Text + " "; 
+                Expression.Text += "√" + Display.Text + " ";
                 double squareRoot = doMath.Calculate(Convert.ToDouble(Display.Text), 0, '√');
                 Display.Text = Convert.ToString(squareRoot);
                 if (operat == '=')
@@ -95,7 +95,7 @@ namespace Rekenmachine
                     result = Convert.ToDouble(Display.Text);
                 }
                 directOp = true;
-            }           
+            }
         }
 
         private void Button9_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace Rekenmachine
                     result = Convert.ToDouble(Display.Text);
                 }
                 directOp = true;
-            }           
+            }
         }
 
         private void Button10_Click(object sender, EventArgs e)
@@ -125,7 +125,7 @@ namespace Rekenmachine
                     result = Convert.ToDouble(Display.Text);
                 }
                 directOp = true;
-            }            
+            }
         }
 
         private void Button11_Click(object sender, EventArgs e)
@@ -137,7 +137,7 @@ namespace Rekenmachine
             else
             {
                 Display.Text += "7";
-               
+
             }
             newEntry = false;
 
@@ -151,7 +151,7 @@ namespace Rekenmachine
             else
             {
                 Display.Text += "8";
-                
+
             }
             newEntry = false;
         }
@@ -164,7 +164,7 @@ namespace Rekenmachine
             else
             {
                 Display.Text += "9";
-                
+
             }
             newEntry = false;
         }
@@ -196,7 +196,7 @@ namespace Rekenmachine
             else
             {
                 Display.Text += "4";
-                
+
             }
             newEntry = false;
         }
@@ -209,7 +209,7 @@ namespace Rekenmachine
             else
             {
                 Display.Text += "5";
-                
+
             }
             newEntry = false;
         }
@@ -222,7 +222,7 @@ namespace Rekenmachine
             else
             {
                 Display.Text += "6";
-                
+
             }
             newEntry = false;
         }
@@ -256,7 +256,7 @@ namespace Rekenmachine
             else
             {
                 Display.Text += "1";
-                
+
             }
             newEntry = false;
         }
@@ -270,7 +270,7 @@ namespace Rekenmachine
             else
             {
                 Display.Text += "2";
-                
+
             }
             newEntry = false;
         }
@@ -283,7 +283,7 @@ namespace Rekenmachine
             else
             {
                 Display.Text += "3";
-                
+
             }
             newEntry = false;
         }
@@ -314,21 +314,21 @@ namespace Rekenmachine
             if (Display.Text != "0" && first != '-')
             {
                 Display.Text = "-" + Display.Text;
-            }            
+            }
         }
 
         private void Button24_Click(object sender, EventArgs e)
         {
-            if (newEntry==true)
+            if (newEntry == true)
             {
                 Display.Text = "0";
             }
             else
             {
                 Display.Text += "0";
-                newEntry = false;             
+                newEntry = false;
             }
-            
+
 
         }
 
@@ -342,7 +342,7 @@ namespace Rekenmachine
                 operat = '=';
                 newEntry = true;
             }
-            
+
         }
 
         private void Button26_Click(object sender, EventArgs e)
@@ -357,13 +357,13 @@ namespace Rekenmachine
                 else
                 {
                     Expression.Text += Display.Text + " + ";
-                }                
-                result=doMath.Calculate(result,Convert.ToDouble(Display.Text),operat);
+                }
+                result = doMath.Calculate(result, Convert.ToDouble(Display.Text), operat);
                 Display.Text = Convert.ToString(result);
-                operat = '+';                
+                operat = '+';
                 newEntry = true;
                 directOp = false;
-            }            
+            }
         }
 
 
@@ -387,7 +387,7 @@ namespace Rekenmachine
             }
             else
             {
-                Display.Text += decimalSymbol;               
+                Display.Text += decimalSymbol;
             }
             newEntry = false;
         }
@@ -682,10 +682,67 @@ namespace Rekenmachine
         {
             button28.BackColor = Color.LightGray;
         }
-                
+
         private void Button29_MouseLeave(object sender, EventArgs e)
         {
             button28.BackColor = Color.LightGray;
+        }
+
+        private void Calculator_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Calculator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case (char)37: //%
+                    button7.PerformClick();
+                    break;
+                case (char)42: //*
+                    button18.PerformClick();
+                    break;
+                case (char)43: //+
+                    button26.PerformClick();
+                    break;
+                case (char)45: //-
+                    button22.PerformClick();
+                    break;
+                case (char)48: //0
+                    button24.PerformClick();
+                    break;
+                case (char)49: //1
+                    button19.PerformClick();
+                    break;
+                case (char)50: //2
+                    button20.PerformClick();
+                    break;
+                case (char)51: //3
+                    button21.PerformClick();
+                    break;
+                case (char)52: //4
+                    button15.PerformClick();
+                    break;
+                case (char)53: //5
+                    button16.PerformClick();
+                    break;
+                case (char)54: //6
+                    button17.PerformClick();
+                    break;
+                case (char)55: //7
+                    button11.PerformClick();
+                    break;
+                case (char)56: //8
+                    button12.PerformClick();
+                    break;
+                case (char)57: //9
+                    button13.PerformClick();
+                    break;
+                case (char)61: //=
+                    button25.PerformClick();
+                    break;
+            }
         }
     }
 }

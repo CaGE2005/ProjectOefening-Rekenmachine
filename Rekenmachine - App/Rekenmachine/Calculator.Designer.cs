@@ -496,6 +496,7 @@
             this.Name = "Calculator";
             this.Opacity = 0.95D;
             this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.Calculator_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
